@@ -1,0 +1,8 @@
+.entete {
+    display: flex;
+    margin-left: 300px;
+    overflow-x: auto;
+}
+.month {
+    width: 310px;
+}

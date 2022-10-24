@@ -1,0 +1,7 @@
+.calendar {
+    position: fixed;
+    overflow-x: auto;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    height: 100%;
+}

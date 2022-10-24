@@ -1,0 +1,28 @@
+.service {
+    width: 100%;
+    list-style: none;
+    border-bottom: 1px solid black;
+    padding: 0.3em
+
+}
+
+.service__title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.service__element {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 0.5em;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+.service__element:hover {
+    cursor: pointer;
+}
+
+.service__element:last-child {
+    border-bottom: none;
+}
