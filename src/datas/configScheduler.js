@@ -1,9 +1,10 @@
 import { fr } from "date-fns/locale";
 
 export const config = {
-  view: "month",
+  view: "week",
   height: "800",
   locale: fr,
+
   month: {
     weekDays: [0, 1, 2, 3, 4, 5, 6],
     weekStartOn: 1,
@@ -20,7 +21,7 @@ export const config = {
   day: {
     startHour: 9,
     endHour: 17,
-    step: 30,
+    step: 60,
   },
   editable: false,
   deletable: false,
