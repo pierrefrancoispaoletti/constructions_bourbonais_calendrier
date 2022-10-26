@@ -1,22 +1,23 @@
+import { Button } from "@mui/material";
 import { fr } from "date-fns/locale";
 
 export const config = {
-  view: "week",
-  height: "800",
+  view: "month",
+  height: "1500",
   locale: fr,
 
   month: {
-    weekDays: [0, 1, 2, 3, 4, 5, 6],
+    weekDays: [0, 1, 2, 3, 4],
     weekStartOn: 1,
     startHour: 9,
     endHour: 17,
   },
   week: {
-    weekDays: [0, 1, 2, 3, 4, 5, 6],
+    weekDays: [0, 1, 2, 3, 4],
     weekStartOn: 1,
     startHour: 9,
     endHour: 17,
-    step: 30,
+    step: 60,
   },
   day: {
     startHour: 9,

@@ -11,11 +11,12 @@ const Services = ({ groupes, setFilteredEvents, events }) => {
 
   return (
     groupes.length && (
-      <>
+      <div className="wrapper">
         <Button
           variant="outlined"
           type="button"
           onClick={() => handleRemoveFilters(setFilteredEvents, events)}
+          style={{ margin: "12px 0 0 calc(300px - 50%)" }}
         >
           Tous
         </Button>
@@ -30,7 +31,7 @@ const Services = ({ groupes, setFilteredEvents, events }) => {
             />
           ))}
         </ul>
-      </>
+      </div>
     )
   );
 };

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { users as usergroups } from "../datas/services";
+import { users as userdatas } from "../datas/services";
 import "./App.css";
 import Services from "./Services/Services";
 import Calendar from "./Calendar/Calendar";
 import UseGetHolidaysEvents from "./CustomHooks/UseGetHolidays";
 import { generateEvents } from "../datas/eventsJoursFeries";
-const filteredUsergroups = usergroups.filter((element) => {
+
+var datas = window.allDocuments ?? userdatas;
+const filteredUsergroups = datas.filter((element) => {
   if (element.group_desc.toLowerCase().includes("serv")) {
     return element;
   }
@@ -33,9 +35,11 @@ function App() {
   UseGetHolidaysEvents(setJoursFeries);
 
   useEffect(() => {
-    setUserEvents([...generateEvents(usergroups), ...joursFeries]);
-    setFilteredEvents([...generateEvents(usergroups), ...joursFeries]);
+    setUserEvents([...generateEvents(datas), ...joursFeries]);
+    setFilteredEvents([...generateEvents(datas), ...joursFeries]);
   }, [joursFeries]);
+
+  //console.log(filteredEvents);
 
   return (
     <div className="App">

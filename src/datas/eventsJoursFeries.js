@@ -1,5 +1,5 @@
-import { ConnectedTvOutlined } from "@mui/icons-material";
 import Axios from "axios";
+import { aServices } from "./services";
 
 let zone = "metropole";
 
@@ -15,8 +15,8 @@ export const getJoursFeries = async (setter) => {
     let holidayEvents = dates.map((date) => ({
       event_id: date,
       title: `Férié ${response.data[date]}`,
-      start: new Date(`${date} 00:01`),
-      end: new Date(`${date} 23:59`),
+      start: new Date(`${date} 09:00`),
+      end: new Date(`${date} 18:00`),
       disabled: false,
       color: "grey",
       description: "Jour Férié",
@@ -43,21 +43,36 @@ export const generateEvents = (conges) => {
       let newDatas = Object.keys(datas).map((el) => ({
         [el]: datas[el].join(),
       }));
+
       newDatas = Object.values(newDatas).reduce(
         (old, item) => ({ ...old, ...item }),
         {}
       );
+
       let event = {
         event_id: Res_Id,
         service: newDatas.custom_n2,
         fullname: `${firstname} ${lastname}`,
+        absence: newDatas.custom_n5,
         hidden: false,
-        title: `${newDatas.custom_n5} de ${firstname} ${lastname}`,
-        start: new Date(`${newDatas.custom_d2} 09:00`),
-        end: new Date(`${newDatas.custom_d3} 17:00`),
+        title: `${firstname} ${lastname}`,
+        start: new Date(
+          `${newDatas.custom_d2} ${
+            newDatas.custom_n4.includes("1") ? "09:00" : "12:00"
+          }`
+        ),
+        end: new Date(
+          `${newDatas.custom_d3} ${
+            newDatas.custom_n6.includes("1") ? "12:00" : "18:00"
+          }`
+        ),
         disabled: false,
         color: couleur,
+        admin_id: aServices.find(
+          (service) => service.title === newDatas.custom_n2
+        )?.admin_id,
       };
+
       return event;
     }
   );
@@ -80,10 +95,15 @@ export const filterEventsByUser = (userName, events, setter) => {
 
 export const filterEventsByService = (service, events, setter) => {
   let newEvents = [...events];
-  let filteredEvents = newEvents.filter((event) => {
-    return event.service === service;
-  });
-  setter([...filteredEvents]);
+  setter(
+    newEvents.map((event) => {
+      if (event.service?.includes(service) || event.title.includes("Férié")) {
+        return { ...event };
+      } else {
+        return { ...event, hidden: true };
+      }
+    })
+  );
 };
 
 export const handleRemoveFilters = (setter, events) => {

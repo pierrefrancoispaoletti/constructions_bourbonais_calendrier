@@ -10,6 +10,9 @@
     text-align: center;
     text-decoration: underline;
 }
+.service__title:hover {
+    cursor: pointer;
+}
 
 .service__element {
     width: 100%;

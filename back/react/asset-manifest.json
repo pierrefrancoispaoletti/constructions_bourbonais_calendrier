@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/constructions_metalliques_bourbonnaises/_ClientSpecific/Calendrier_Custom_React/react/static/css/main.c7428bb7.css",
+    "main.js": "/constructions_metalliques_bourbonnaises/_ClientSpecific/Calendrier_Custom_React/react/static/js/main.25b326d3.js",
+    "index.html": "/constructions_metalliques_bourbonnaises/_ClientSpecific/Calendrier_Custom_React/react/index.html",
+    "main.c7428bb7.css.map": "/constructions_metalliques_bourbonnaises/_ClientSpecific/Calendrier_Custom_React/react/static/css/main.c7428bb7.css.map",
+    "main.25b326d3.js.map": "/constructions_metalliques_bourbonnaises/_ClientSpecific/Calendrier_Custom_React/react/static/js/main.25b326d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7428bb7.css",
+    "static/js/main.25b326d3.js"
+  ]
+}
