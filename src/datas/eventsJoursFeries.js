@@ -37,6 +37,7 @@ export const generateEvents = (conges) => {
       lastname,
       user_id,
       couleur,
+      valide,
       ...conge
     }) => {
       const [{ ...datas }, ...Conge] = Documents;
@@ -67,7 +68,10 @@ export const generateEvents = (conges) => {
           }`
         ),
         disabled: false,
-        color: couleur,
+        color:
+          valide === "OUI"
+            ? couleur
+            : `repeating-linear-gradient(45deg,#606dbc,#606dbc 10px, ${couleur} 10px,${couleur} 20px)`,
         admin_id: aServices.find(
           (service) => service.title === newDatas.custom_n2
         )?.admin_id,
@@ -76,6 +80,7 @@ export const generateEvents = (conges) => {
       return event;
     }
   );
+  console.log(events);
   return events;
 };
 

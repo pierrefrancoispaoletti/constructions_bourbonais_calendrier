@@ -6,6 +6,7 @@ export const users = [
     group_desc: "Filtre - Service Administratif",
     Res_Id: "672",
     couleur: "#7ce500",
+    valide: "NON",
     Documents: [
       {
         custom_n1: ["104"],

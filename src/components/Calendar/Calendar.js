@@ -52,13 +52,7 @@ const Calendar = ({ events }) => {
               height: "100%",
             }}
           >
-            <div style={{ background: "#ffffffb5", color: "black" }}>
-              {event.service}
-            </div>
             <div>{event.title}</div>
-            <div style={{ background: "#ffffffb5", color: "black" }}>
-              {event.service}
-            </div>
           </div>
         )}
         events={events}
